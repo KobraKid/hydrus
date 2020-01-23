@@ -4,28 +4,28 @@ import sys
 # dirs
 
 if getattr( sys, 'frozen', False ):
-    
+
     RUNNING_FROM_FROZEN_BUILD = True
-    
+
     # we are in a pyinstaller frozen app
-    
+
     BASE_DIR = getattr( sys, '_MEIPASS', None )
-    
+
     if BASE_DIR is None:
-        
+
         raise Exception( 'It seems this hydrus is running from a frozen bundle, but there was no _MEIPASS variable under sys to define the bundle directory.' )
-        
-    
+
+
 else:
-    
+
     RUNNING_FROM_FROZEN_BUILD = False
-    
+
     BASE_DIR = sys.path[0]
-    
+
     if BASE_DIR == '':
-        
+
         BASE_DIR = os.getcwd()
-        
+
 
 PLATFORM_WINDOWS = False
 PLATFORM_MACOS  = False
@@ -46,13 +46,13 @@ STATIC_DIR = os.path.join( BASE_DIR, 'static' )
 DEFAULT_DB_DIR = os.path.join( BASE_DIR, 'db' )
 
 if PLATFORM_MACOS:
-    
+
     USERPATH_DB_DIR = os.path.join( os.path.expanduser( '~' ), 'Library', 'Hydrus' )
-    
+
 else:
-    
+
     USERPATH_DB_DIR = os.path.join( os.path.expanduser( '~' ), 'Hydrus' )
-    
+
 
 LICENSE_PATH = os.path.join( BASE_DIR, 'license.txt' )
 
@@ -521,7 +521,7 @@ MIMES_THAT_MAY_HAVE_AUDIO = tuple( list( MIMES_THAT_DEFINITELY_HAVE_AUDIO ) + li
 
 ARCHIVES = ( APPLICATION_ZIP, APPLICATION_HYDRUS_ENCRYPTED_ZIP, APPLICATION_RAR, APPLICATION_7Z )
 
-MIMES_WITH_THUMBNAILS = ( APPLICATION_FLASH, IMAGE_JPEG, IMAGE_PNG, IMAGE_APNG, IMAGE_GIF, IMAGE_BMP, IMAGE_WEBP, IMAGE_TIFF, IMAGE_ICON, VIDEO_AVI, VIDEO_FLV, VIDEO_MOV, VIDEO_MP4, VIDEO_WMV, VIDEO_MKV, VIDEO_REALMEDIA, VIDEO_WEBM, VIDEO_MPEG )
+MIMES_WITH_THUMBNAILS = ( APPLICATION_FLASH, APPLICATION_PDF, IMAGE_JPEG, IMAGE_PNG, IMAGE_APNG, IMAGE_GIF, IMAGE_BMP, IMAGE_WEBP, IMAGE_TIFF, IMAGE_ICON, VIDEO_AVI, VIDEO_FLV, VIDEO_MOV, VIDEO_MP4, VIDEO_WMV, VIDEO_MKV, VIDEO_REALMEDIA, VIDEO_WEBM, VIDEO_MPEG )
 
 HYDRUS_UPDATE_FILES = ( APPLICATION_HYDRUS_UPDATE_DEFINITIONS, APPLICATION_HYDRUS_UPDATE_CONTENT )
 

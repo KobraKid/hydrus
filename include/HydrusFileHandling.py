@@ -98,8 +98,8 @@ def GenerateThumbnailBytes(path, target_resolution, mime, duration, num_frames, 
 
                 HydrusPDFHandling.RenderPageToFile(path, temp_path, 1)
 
-                # thumbnail_bytes = HydrusImageHandling.GenerateThumbnailBytesFromStaticImagePath(
-                #     temp_path, target_resolution, mime)
+                thumbnail_bytes = HydrusImageHandling.GenerateThumbnailBytesFromStaticImagePath(
+                    temp_path, target_resolution, mime)
 
             except:
 
